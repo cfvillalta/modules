@@ -11,8 +11,9 @@
 
 #Run fasttreeMP outputs newick file.
 def ClustalO(file_main_name):
+    from subprocess import Popen, PIPE
     print 'Begin clustalo'
-    clustalo = Popen(['time', 'clustalo', '-i', '%s_unaligned.fa' %(file_main_name), '-o', '%s_aligned_clustalo.fa' %(file_main_name), '--force'])
+    clustalo = Popen(['time', 'clustalo', '-i', '%s' %(file_main_name), '-o', '%s_aligned_clustalo.fa' %(file_main_name), '--force'])
     clustalo.communicate()
     
     print 'Done with clustalo'
@@ -20,6 +21,7 @@ def ClustalO(file_main_name):
 
 #want to run in the background but have an issue piping when nohup
 def  FastTreeMP(file_main_name):
+    from subprocess import Popen, PIPE
     import sys
     print "Begin FastTreeMP"
     FastTreeMP = Popen(['FastTreeMP', '-quiet', '-nopr', '-log', '%s_fasttree.log' %(file_main_name), '%s_aligned_clustalo.fa' %(file_main_name)],stdout=PIPE,shell=False)
