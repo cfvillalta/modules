@@ -2,7 +2,7 @@
 
 #this will be a module with my phylogenetic analysis tools. e.g. fasttree tree building, clustalo.
 
-
+#assumed I have clustalo, fastteemp installed.
 #first function will be to run clustalo from python.
 
 
