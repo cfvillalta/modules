@@ -13,7 +13,7 @@
 def ClustalO(file_main_name):
     from subprocess import Popen, PIPE
     print 'Begin clustalo'
-    clustalo = Popen(['time', 'clustalo', '-i', '%s' %(file_main_name), '-o', '%s_aligned_clustalo.fa' %(file_main_name), '--force'])
+    clustalo = Popen(['time', 'clustalo', '-i', '%s.fa' %(file_main_name), '-o', '%s_aligned_clustalo.fa' %(file_main_name), '--force', '--threads=4'])
     clustalo.communicate()
     
     print 'Done with clustalo'
