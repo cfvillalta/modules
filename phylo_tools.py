@@ -78,3 +78,12 @@ def GID2seq(list_name_here):
             print "no GID sequecne %s" %(GID)
 
     return fasta_seqs
+
+#build hmm within python.
+#file has to have .fasta
+
+def hmmbuild(file_main_name):
+    from subprocess import Popen, PIPE
+    hmmbuild = Popen(['hmmbuild', '--cpu', '4', '%s.hmm' %(file_main_name), '%s.fasta' %(file_main_name)])
+    
+    print 'Done with hmmbuild'
