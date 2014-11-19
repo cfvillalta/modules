@@ -22,8 +22,6 @@ def trim(input_directory_here):
             file_path = "%s%s" %(seq_dir,file)
 #open .ab1 file from above
             handle = open(file_path, 'rb')
-
-
 #go through abi and trim
             for record in SeqIO.AbiIO.AbiIterator(handle, trim = True):             
 #add seq id as key and sequence as value.
